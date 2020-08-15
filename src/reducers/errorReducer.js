@@ -1,6 +1,6 @@
 import { IMAGES } from '../constants';
 
-const loadingReducer = (state = null, action) => {
+const errorReducer = (state = null, action) => {
     switch (action.type) {
         case IMAGES.LOADING_ERROR: // lấy ảnh thất bại thì hiện ra lỗi
             return action.err;
@@ -14,4 +14,4 @@ const loadingReducer = (state = null, action) => {
     }
 };
 
-export default loadingReducer;
+export default errorReducer;

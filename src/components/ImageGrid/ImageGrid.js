@@ -3,35 +3,19 @@ import { connect } from 'react-redux';
 import { loadImages } from '../../actions';
 import './styles.css';
 
-const key = '5f96323678d05ff0c4eb264ef184556868e303b32a2db88ecbf15746e6f25e02';
-
 class ImageGrid extends Component {
-    state = {
-        images: [],
-    };
-
     componentDidMount() {
-        fetch(`https://api.unsplash.com/photos/?client_id=${key}&per_page=28`)
-            .then(res => res.json())
-            .then(images => {
-                this.setState({
-                    images,
-                });
-            });
+        this.props.loadImages();
     }
-
     render() {
-        const { images } = this.state;
-
-        // const { isLoading, err } = this.props;
-
-        // console.log(isLoading, err);
+        const { isLoading, images, nextPage } = this.props;
+        console.log('state :', images, nextPage);
         return (
             <div className="content">
                 <section className="grid">
-                    {images.map(image => (
+                    {images.map((image, index) => (
                         <div
-                            key={image.id}
+                            key={index}
                             className={`item item-${Math.ceil(
                                 image.height / image.width,
                             )}`}
@@ -42,6 +26,7 @@ class ImageGrid extends Component {
                             />
                         </div>
                     ))}
+                    {isLoading && <p>loading...</p>}
                     <p onClick={() => this.props.loadImages()}>
                         fetch image from api
                     </p>
@@ -51,10 +36,11 @@ class ImageGrid extends Component {
     }
 }
 
-const mapStateToProps = ({ isLoading, images, err }) => ({
+const mapStateToProps = ({ isLoading, images, err, nextPage }) => ({
     isLoading,
     images,
     err,
+    nextPage,
 });
 
 const mapDispatchToProps = dispatch => ({
