@@ -32,6 +32,6 @@ export default rootSaga;
 // Take(): tạm dừng cho đến khi nhận được action
 // Put(): Dùng để dispatch một action
 // takeEvery(): Theo dõi một action nào đó thay đổi thì gọi một saga nào đó
-// akeLastest() : Có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng
+// takeLastest() : Có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng
 // yield(): Có nghĩa là chạy tuần tự khi nào trả ra kết quả mới thực thi tiếp
 // Select(): Chạy một selector function để lấy data từ state

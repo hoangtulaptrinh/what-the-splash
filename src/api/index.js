@@ -10,9 +10,24 @@ const fetchImages = async page => {
     const data = await response.json();
 
     if (response.status >= 400) {
-        throw new Error(data.errors);
+        throw new Error(data.errors); //throw new Error để trả error vào catch bên saga nếu không có sẽ thì bên saga sẽ không chạy vào catch
     }
+
     return data;
 };
 
-export { fetchImages };
+const fetchImagesStats = async id => {
+    const response = await fetch(
+        `${URL}/${id}/statistics${process.env.REACT_APP_KEY}`,
+    );
+
+    const data = await response.json();
+
+    if (response.status >= 400) {
+        throw new Error(data.errors); //throw new Error để trả error vào catch bên saga nếu không có sẽ thì bên saga sẽ không chạy vào catch
+    }
+
+    return data;
+};
+
+export { fetchImages, fetchImagesStats };

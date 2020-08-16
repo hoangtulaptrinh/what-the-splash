@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadImages } from '../../actions';
+
 import './styles.css';
+import { loadImages } from '../../actions';
+import STATS from '../Stats';
 
 class ImageGrid extends Component {
     componentDidMount() {
         this.props.loadImages();
     }
     render() {
-        const { isLoading, images, nextPage } = this.props;
-        console.log('state :', images, nextPage);
+        const { isLoading, images, err, imageStats } = this.props;
         return (
             <div className="content">
                 <section className="grid">
+                    {err && <p style={{ color: 'red' }}>{err}</p>}
                     {images.map((image, index) => (
                         <div
                             key={index}
@@ -20,6 +22,7 @@ class ImageGrid extends Component {
                                 image.height / image.width,
                             )}`}
                         >
+                            <STATS stats={imageStats[image.id]} />
                             <img
                                 src={image.urls.small}
                                 alt={image.user.username}
@@ -27,20 +30,23 @@ class ImageGrid extends Component {
                         </div>
                     ))}
                     {isLoading && <p>loading...</p>}
-                    <p onClick={() => this.props.loadImages()}>
-                        fetch image from api
-                    </p>
+                    {!isLoading && (
+                        <p onClick={() => this.props.loadImages()}>
+                            fetch image from api
+                        </p>
+                    )}
                 </section>
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ isLoading, images, err, nextPage }) => ({
+const mapStateToProps = ({ isLoading, images, err, nextPage, imageStats }) => ({
     isLoading,
     images,
     err,
     nextPage,
+    imageStats,
 });
 
 const mapDispatchToProps = dispatch => ({
