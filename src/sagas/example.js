@@ -35,6 +35,6 @@ export default rootSaga;
 // takeEvery(): Theo dõi một action nào đó thay đổi thì gọi một saga nào đó
 // takeLastest() : Có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng,
 //                 tức là nó sẽ hủy bỏ quy trình cũ khi có quy trình mới bắt đầu VD : bấm liên tục vào 1 nút để gọi api thì sẽ chỉ nhận lần bấm cuối
-//                 nó sẽ không gọi liên tục nếu như lần bấm trước chưa gọi ap
+//                 nó sẽ không gọi liên tục nếu như lần bấm trước chưa gọi api xong
 // yield(): Có nghĩa là chạy tuần tự khi nào trả ra kết quả mới thực thi tiếp
 // Select(): Chạy một selector function để lấy data từ state
