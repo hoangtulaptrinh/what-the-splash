@@ -1,10 +1,11 @@
 // get your own key from unsplash please 😇
 
-const URL = `https://api.unsplash.com/photos/`;
+const IMAGES_URL = `https://api.unsplash.com/photos/`;
 
+// images
 const fetchImages = async page => {
     const response = await fetch(
-        `${URL}${process.env.REACT_APP_KEY}&per_page=3&page=${page}`,
+        `${IMAGES_URL}${process.env.REACT_APP_KEY}&per_page=3&page=${page}`,
     );
 
     const data = await response.json();
@@ -16,9 +17,10 @@ const fetchImages = async page => {
     return data;
 };
 
+// stats
 const fetchImagesStats = async id => {
     const response = await fetch(
-        `${URL}/${id}/statistics${process.env.REACT_APP_KEY}`,
+        `${IMAGES_URL}/${id}/statistics${process.env.REACT_APP_KEY}`,
     );
 
     const data = await response.json();
@@ -30,4 +32,9 @@ const fetchImagesStats = async id => {
     return data;
 };
 
-export { fetchImages, fetchImagesStats };
+// harems
+const HAREMS_URL = 'https://5f3a78f22300b100169a8c47.mockapi.io/harems';
+
+const fetchHarems = () => fetch(HAREMS_URL);
+
+export { fetchImages, fetchImagesStats, fetchHarems };

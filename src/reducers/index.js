@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import errorReducer from './errorReducer';
+import haremReducer from './haremReducer';
 import imagesReducer from './imagesReducer';
 import loadingReducer from './loadingReducer';
 import pageReducer from './pageReducer';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     err: errorReducer,
     nextPage: pageReducer,
     imageStats: statsReducer,
+    harems: haremReducer,
 });
 
 export default rootReducer;

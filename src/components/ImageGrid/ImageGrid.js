@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './styles.css';
 import { loadImages } from '../../actions';
 import STATS from '../Stats';
-
+import Harems from '../Harems';
 class ImageGrid extends Component {
     componentDidMount() {
         this.props.loadImages();
@@ -36,6 +36,7 @@ class ImageGrid extends Component {
                         </p>
                     )}
                 </section>
+                <Harems />
             </div>
         );
     }
