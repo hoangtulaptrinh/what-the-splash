@@ -27,9 +27,9 @@ function* rootSaga() {
 
 export default rootSaga;
 
-// Fork(): sử dụng cơ chế non - blocking call trên function
-// Call(): Gọi function. Nếu nó return về một promise, tạm dừng saga cho đến khi promise được giải quyết
-// Take(): tạm dừng cho đến khi nhận được action
+// Fork(): sử dụng cơ chế non - blocking call trên function (non-block)
+// Call(): Gọi function. Nếu nó return về một promise, tạm dừng saga cho đến khi promise được giải quyết (block - g)
+// Take(): tạm dừng cho đến khi nhận được action (block)
 // Put(): Dùng để dispatch một action
 // takeEvery(): Theo dõi một action nào đó thay đổi thì gọi một saga nào đó
 // takeLastest() : Có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng
