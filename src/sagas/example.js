@@ -33,7 +33,7 @@ export default rootSaga;
 // Put(): Dùng để dispatch một action (non-block)
 // delay(): Dùng để chặn (block) trong 1 khoảng thời gian VD: yield delay(1000) tức là đợi thêm 1s rồi chạy code ở dưới
 // takeEvery(): Theo dõi một action nào đó thay đổi thì gọi một saga nào đó
-// takeLastest() : Có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng,
+// takeLastest() : cũng theo dõi một action nào đó thay đổi thì gọi một saga nào đó nhưng khác với takeEvery() là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng,
 //                 tức là nó sẽ hủy bỏ quy trình cũ khi có quy trình mới bắt đầu VD : bấm liên tục vào 1 nút để gọi api thì sẽ chỉ nhận lần bấm cuối
 //                 nó sẽ không gọi liên tục nếu như lần bấm trước chưa gọi api xong
 // yield(): Có nghĩa là chạy tuần tự khi nào trả ra kết quả mới thực thi tiếp
