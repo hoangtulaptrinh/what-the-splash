@@ -25,7 +25,9 @@ export default function* watchStatsRequest() {
 
         //dùng for thì ok
         for (let i = 0; i < images.length; i++) {
-            yield fork(handleStatsRequest, images[i].id); // Fork(): sử dụng cơ chế non - blocking call trên function tức là chạy song song không chặn ai cả
+            // Fork(): sử dụng cơ chế non - blocking call trên function tức là chạy song song không chặn ai cả 
+            // viết liên tục nhiều Fork() thì nó sẽ chạy song song không đợi nhau
+            yield fork(handleStatsRequest, images[i].id); 
         }
     }
 }
