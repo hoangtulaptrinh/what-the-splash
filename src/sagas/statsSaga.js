@@ -20,12 +20,12 @@ export default function* watchStatsRequest() {
         const { images } = yield take(IMAGES.LOADING_SUCCESS); // đợi cho đến khi action IMAGES.LOADING_SUCCESS được call thì lấy data images ra để thao tác
 
         // images.forEach(image=>{
-        //   yield fork(handleStatsRequest,image.id) //báo lỗi yield is reserved word (tạm thời chưa hiểu) dùng
+        //   yield fork(handleStatsRequest,image.id) //báo lỗi yield is reserved word (tạm thời chưa hiểu) 
         // })
 
-        //for thì ok
+        //dùng for thì ok
         for (let i = 0; i < images.length; i++) {
-            yield fork(handleStatsRequest, images[i].id); // Fork(): sử dụng cơ chế non - blocking call trên function tức là chạy song song không ch
+            yield fork(handleStatsRequest, images[i].id); // Fork(): sử dụng cơ chế non - blocking call trên function tức là chạy song song không chặn ai cả
         }
     }
 }
